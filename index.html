@@ -7,59 +7,30 @@
     <link rel="stylesheet" hvueref="node_modules/font-awesome/css/font-awesome.css">
 </head>
 <body>
-<div class="container" id="hello">
+<div class="container" id="app">
     <div class="row">
-        <h1>{{ msg }}</h1>
-        <input class="form-control" type="text" v-model="msg">
+        <h1>Books</h1>
     </div>
     <div class="row">
-        <h1>My List</h1>
-        <ul>
-            <li v-for="people in peoples">
-                {{ people.name }}
-            </li>
-        </ul>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="book in books">
+                    <td>{{ book.id }}</td>
+                    <td>{{ book.title }}</td>
+                    <td>{{ book.value }}</td>
+                    <td>{{ book.description }}</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
-    <div class="row">
-        <h1>My List elements</h1>
-        <input class="form-control" type="text" v-model="newElement" v-on:keyup.enter="addElement">
-        <ul>
-            <li v-for="element in elements">
-                {{ element.title }}
-                <a href="#" v-on:click="removeElement($event, $index)">X</a>
-            </li>
-        </ul>
-    </div>
-    <div class="row">
-        <h1>v-on</h1>
-        <button v-on:click="myClick">Click</button>
-        <button @click="myClick">@Click</button>
-        <input type="text" @keyup="myKeyUp" placeholder="myKeyUp">
-        <input type="text" @keyup.enter="myKeyUp" placeholder="myKeyUp">
-        <input type="text" @keyup.13="myKeyUp" placeholder="myKeyUp">
-    </div>
-    <div class="row">
-        <h1>v-bind</h1>
-        <p v-bind:class="{ 'text-danger': 2 === 1, 'text-info': true  }">text</p>
-        <p :class="{ 'text-danger': 2 === 1, 'text-info': true  }">:text</p>
-        <p :style="{ fontSize:30 + 'px'}">Style</p>
-        <p :style="{ 'font-size':30 + 'px'}">Style</p>
-        <p :style="[objectA, objectB]">Object A and B</p>
-        <p v-bind:="{id: 1 === 1, name: true}">bind attribute</p>
-    </div>
-    <div class="row">
-        <h1>v-model</h1>
-        <ul>
-            <li v-for="myList in myListForm">
-                {{ myList.name }} - {{ myList.email }}
-            </li>
-            <input type="text" v-model="myForm.name" placeholder="Name">
-            <input type="text" v-model="myForm.email" placeholder="Email">
-            <button @click="addForm">Add</button>
-        </ul>
-    </div>
-    <br><br><br><br>
-
 </div>
 
 
